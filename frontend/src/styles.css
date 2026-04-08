@@ -1,0 +1,256 @@
+:root {
+  color: #e8ecf3;
+  background: #0b1020;
+  font-family: Inter, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #0b1020 0%, #121a2d 100%);
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  min-height: 100vh;
+}
+
+.loading {
+  display: grid;
+  place-items: center;
+}
+
+.sidebar {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(6, 10, 20, 0.75);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+}
+
+.sidebar-header {
+  display: grid;
+  gap: 12px;
+}
+
+.sidebar-header h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.sidebar-header button,
+.header-actions button,
+.composer button,
+.card-actions button,
+.system-record button,
+.child-card button {
+  border: 0;
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  color: #08101f;
+  background: #7ee787;
+  font-weight: 600;
+}
+
+.session-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.session-item {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 14px;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+}
+
+.session-item.active {
+  border-color: #7ee787;
+  background: rgba(126, 231, 135, 0.12);
+}
+
+.session-item span,
+.session-item small,
+.chat-header p,
+.card-status,
+.message small {
+  color: #a6b0c3;
+}
+
+.chat-panel {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto auto;
+  gap: 16px;
+  padding: 24px;
+}
+
+.chat-header,
+.child-card,
+.composer,
+.page-error {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.chat-header,
+.child-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+}
+
+.chat-header h2,
+.child-card p {
+  margin: 0;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.status {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.status-streaming {
+  background: rgba(255, 184, 108, 0.18);
+}
+
+.status-error {
+  background: rgba(255, 107, 107, 0.2);
+}
+
+.message-list {
+  overflow: auto;
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  padding-right: 8px;
+}
+
+.message {
+  max-width: min(860px, 100%);
+}
+
+.bubble {
+  padding: 14px 16px;
+  border-radius: 18px;
+  line-height: 1.6;
+}
+
+.bubble.user {
+  justify-self: end;
+  background: linear-gradient(135deg, #7ee787 0%, #53d5ff 100%);
+  color: #09111e;
+}
+
+.bubble.assistant,
+.bubble.system {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.system-card,
+.system-record {
+  background: rgba(120, 167, 255, 0.1);
+  border: 1px solid rgba(120, 167, 255, 0.24);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.card-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  margin: 14px 0 8px;
+}
+
+.card-actions button:last-child,
+.header-actions button,
+.system-record button,
+.child-card button {
+  background: rgba(255, 255, 255, 0.12);
+  color: #eef4ff;
+}
+
+.composer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  padding: 16px;
+}
+
+.composer textarea {
+  width: 100%;
+  min-height: 96px;
+  resize: vertical;
+  border: 0;
+  outline: none;
+  border-radius: 14px;
+  padding: 14px;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.page-error {
+  padding: 12px 16px;
+  color: #ffb4b4;
+}
+
+pre {
+  overflow: auto;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.28);
+}
+
+code {
+  font-family: Consolas, Monaco, monospace;
+}
+
+@media (max-width: 900px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .chat-header,
+  .child-card,
+  .composer {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .composer {
+    grid-template-columns: 1fr;
+  }
+}
